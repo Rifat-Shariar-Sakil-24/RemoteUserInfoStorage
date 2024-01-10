@@ -1,0 +1,55 @@
+html,
+body {
+  height: 100%;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 1rem;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.top{
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+.middle{
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.bottom{
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.nocomment{
+    color: green;
+}
+
+
+.form-signin h1 {
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+}
+.form-signin {
+    max-width: 400px; /* Adjust this width according to your design */
+    margin: auto; /* Center the form on the page */
+    padding: 1rem;
+}
+
+.form-signin {
+    max-width: 400px; /* Adjust this width according to your design */
+    margin: auto; /* Center the form on the page */
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
