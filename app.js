@@ -4,8 +4,7 @@ const request = require("request");
 const mailchimp = require("@mailchimp/mailchimp_marketing");  
 const https = require("https");
 
-const listId = "565ca59cd4";
-const apiKey = "a16d3b06878ab0524bae9d224f5b6df6-us21";
+
 
 const app = express();
 
@@ -20,27 +19,34 @@ app.get("/", function(req,res){
     res.sendFile(__dirname + "/signup.html");
 })
 app.post("/", function(req,res){
-  const fName = req.body.fName;
-  const lName = req.body.lName;
-  const email = req.body.email;
+    const totalInfo = req.body;
+    const firstName = totalInfo.fName;
+    const secondName = totalInfo.lName;;
+    const email = totalInfo.email;
 
-  const data = {
-    members: [
-        {
-            email_address: email,
-            status: "subscribed",
-            merge_fields: {
-                FNAME : fName,
-                LNAME : lName
+    console.log(firstName);
+    console.log(secondName);
+    console.log(email);
+
+    const data = {
+        members: [
+            {
+                email_address: email,
+                status: "subscribed",
+                merge_fields: {
+                    FNAME : firstName,
+                    LNAME: secondName
+                }
+
             }
-        }
-    ]
-  }
-  const jsonData = JSON.stringify(data);
-  console.log(jsonData);
+        ]
+    }
 
-  const url = "https://us21.api.mailchimp.com/3.0/lists/565ca59cd4";
-    const apiKey = "850da8aac4c5ea34e034c5fef103190b-us21";
+    const jsondata = JSON.stringify(data);
+    console.log(jsondata);
+
+    const url = "https://us21.api.mailchimp.com/3.0/lists/565ca59cd4";
+    const apiKey = "88f3392259338ee23a10ef2159f73efd-us21";
     const options = {
         method: "POST",
         headers: {
@@ -62,7 +68,7 @@ app.post("/", function(req,res){
 
         
     })
-    request.write(jsonData);
+    request.write(jsondata);
     request.end();
 
 
